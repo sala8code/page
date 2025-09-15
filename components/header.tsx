@@ -1,112 +1,122 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Menu, X } from "lucide-react"
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 export function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
+    const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
+      element.scrollIntoView({ behavior: "smooth" });
     }
-    setIsMenuOpen(false)
-  }
+    setIsMenuOpen(false);
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 0);
+      if (isMenuOpen) {
+        setIsMenuOpen(false); // Cierra el menú si se hace scroll
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isMenuOpen]);
 
   return (
-    <header className="fixed top-0 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 z-50 border-b">
+    <header
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        scrolled ? "bg-background/80 backdrop-blur-md" : "bg-transparent"
+      }`}
+    >
+      {/* Borde inferior con degradado */}
+      {scrolled && (
+        <div className="absolute bottom-0 left-0 w-full h-[3px] bg-gradient-to-r from-transparent via-[#29A9E0] to-transparent"></div>
+      )}
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          <div className="flex items-center">
-            <h1 className="text-2xl font-bold text-primary">Sala8Code</h1>
+          <div>
+            <Image
+              src="/logo.png"
+              alt="Logo"
+              width={120}
+              height={120}
+              className="transition-transform duration-300 hover:scale-105"
+            />
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            <button
-              onClick={() => scrollToSection("inicio")}
-              className="text-foreground hover:text-primary transition-colors"
-            >
-              Inicio
-            </button>
-            <button
-              onClick={() => scrollToSection("nosotros")}
-              className="text-foreground hover:text-primary transition-colors"
-            >
-              Nosotros
-            </button>
-            <button
-              onClick={() => scrollToSection("servicios")}
-              className="text-foreground hover:text-primary transition-colors"
-            >
-              Servicios
-            </button>
-            <button
-              onClick={() => scrollToSection("proyectos")}
-              className="text-foreground hover:text-primary transition-colors"
-            >
-              Proyectos
-            </button>
-            <button
-              onClick={() => scrollToSection("contacto")}
-              className="text-foreground hover:text-primary transition-colors"
-            >
-              Contacto
-            </button>
+            {["inicio", "nosotros", "servicios", "proyectos", "contacto"].map(
+              (section) => (
+                <button
+                  key={section}
+                  onClick={() => scrollToSection(section)}
+                  className={`transition-colors cursor-pointer font-semibold ${
+                    scrolled
+                      ? "text-black hover:text-primary"
+                      : "text-white hover:text-primary"
+                  }`}
+                >
+                  {section.charAt(0).toUpperCase() + section.slice(1)}
+                </button>
+              )
+            )}
           </nav>
 
-          <div className="hidden md:flex">
-            <Button onClick={() => scrollToSection("contacto")}>Hablemos</Button>
-          </div>
-
-          {/* Mobile menu button */}
+          {/* Mobile Button */}
           <div className="md:hidden">
-            <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-10 w-10 text-white" />
+              )}
             </Button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-card rounded-lg mt-2">
-              <button
-                onClick={() => scrollToSection("inicio")}
-                className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary transition-colors w-full text-left"
+          <div className="md:hidden fixed top-0 right-0 w-1/2 h-screen bg-background/80 backdrop-blur-md rounded-l-lg shadow-lg z-50 transition-transform duration-300">
+            {/* Botón de cierre en la esquina superior */}
+            <div className="flex justify-end px-4 py-4">
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setIsMenuOpen(false)}
               >
-                Inicio
-              </button>
-              <button
-                onClick={() => scrollToSection("nosotros")}
-                className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary transition-colors w-full text-left"
-              >
-                Nosotros
-              </button>
-              <button
-                onClick={() => scrollToSection("servicios")}
-                className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary transition-colors w-full text-left"
-              >
-                Servicios
-              </button>
-              <button
-                onClick={() => scrollToSection("proyectos")}
-                className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary transition-colors w-full text-left"
-              >
-                Proyectos
-              </button>
-              <button
-                onClick={() => scrollToSection("contacto")}
-                className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary transition-colors w-full text-left"
-              >
-                Contacto
-              </button>
+                <X className="h-6 w-6 text-black" />
+              </Button>
+            </div>
+
+            <div className="px-6 py-4 flex flex-col justify-start space-y-4">
+              {["inicio", "nosotros", "servicios", "proyectos", "contacto"].map(
+                (section) => (
+                  <button
+                    key={section}
+                    onClick={() => scrollToSection(section)}
+                    className="block px-3 py-3 text-base font-medium w-full text-left text-black hover:text-primary transition-colors"
+                  >
+                    {section.charAt(0).toUpperCase() + section.slice(1)}
+                  </button>
+                )
+              )}
             </div>
           </div>
         )}
       </div>
     </header>
-  )
+  );
 }
