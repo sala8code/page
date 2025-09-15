@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Globe, Smartphone, Code, ArrowRight } from "lucide-react"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Globe, Smartphone, Code, ArrowRight } from "lucide-react";
 
 const services = [
   {
@@ -14,7 +14,8 @@ const services = [
   {
     icon: Smartphone,
     title: "Desarrollo de Aplicaciones Móviles",
-    description: "Apps nativas e híbridas para iOS y Android que conectan con tus usuarios de manera efectiva.",
+    description:
+      "Apps nativas e híbridas para iOS y Android que conectan con tus usuarios de manera efectiva.",
   },
   {
     icon: Code,
@@ -22,15 +23,15 @@ const services = [
     description:
       "Soluciones personalizadas diseñadas específicamente para satisfacer las necesidades únicas de tu negocio.",
   },
-]
+];
 
 export function Services() {
   const scrollToContact = () => {
-    const element = document.getElementById("contacto")
+    const element = document.getElementById("contacto");
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
+      element.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
   return (
     <section id="servicios" className="py-20 bg-muted/30">
@@ -40,22 +41,27 @@ export function Services() {
             Nuestros <span className="text-primary">Servicios</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
-            Ofrecemos una gama completa de servicios de desarrollo para llevar tu proyecto desde la idea hasta el
-            lanzamiento y más allá.
+            Ofrecemos una gama completa de servicios de desarrollo para llevar
+            tu proyecto desde la idea hasta el lanzamiento y más allá.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           {services.map((service, index) => (
-            <Card key={index} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-              <CardHeader>
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+            <Card
+              key={index}
+              className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 text-center"
+            >
+              <CardHeader className="w-full">
+                <div className="w-12 h-12 bg-primary/10 rounded-lg  mx-auto flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
                   <service.icon className="h-6 w-6 text-primary" />
                 </div>
                 <CardTitle className="text-xl">{service.title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground leading-relaxed">{service.description}</p>
+                <p className="text-muted-foreground leading-relaxed">
+                  {service.description}
+                </p>
               </CardContent>
             </Card>
           ))}
@@ -69,5 +75,5 @@ export function Services() {
         </div>
       </div>
     </section>
-  )
+  );
 }

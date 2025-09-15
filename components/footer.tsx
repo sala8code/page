@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import { Github, Linkedin, Twitter, Mail } from "lucide-react"
+import { Github, Linkedin, Twitter, Mail } from "lucide-react";
 
 export function Footer() {
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
+    const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
+      element.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
   return (
     <footer className="bg-card border-t">
@@ -16,22 +16,35 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="md:col-span-2">
-            <h3 className="text-2xl font-bold text-primary mb-4">DevStudio</h3>
-            <p className="text-muted-foreground mb-4 leading-relaxed">
-              Transformamos ideas en soluciones digitales innovadoras. Especializados en desarrollo web, aplicaciones
-              móviles y consultoría tecnológica.
+            <h3 className="text-2xl font-bold text-primary mb-4">Sala8Code</h3>
+            <p className="text-muted-foreground mb-4 max-w-lg leading-relaxed">
+              Transformamos ideas en soluciones digitales innovadoras.
+              Especializados en desarrollo web, aplicaciones móviles y
+              consultoría tecnológica.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a
+                href="#"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
                 <Github className="h-5 w-5" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a
+                href="#"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a
+                href="#"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
                 <Twitter className="h-5 w-5" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a
+                href="#"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
                 <Mail className="h-5 w-5" />
               </a>
             </div>
@@ -94,5 +107,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
