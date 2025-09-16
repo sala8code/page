@@ -95,7 +95,7 @@ export function Header() {
 
         {/* Menú móvil */}
         {isMenuOpen && (
-          <div className="md:hidden fixed top-0 right-0 w-64 sm:w-72 max-w-[80vw] h-screen bg-background/95 backdrop-blur-md rounded-l-lg shadow-lg z-50 transition-transform duration-300">
+          <div className="md:hidden fixed top-0 right-0 w-64 sm:w-72 max-w-[80vw] h-screen bg-white backdrop-blur-md rounded-l-lg shadow-lg z-50 transition-transform duration-300">
             <div className="flex justify-end px-4 py-4">
               <Button
                 variant="ghost"
