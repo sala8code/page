@@ -32,7 +32,7 @@ export function Header() {
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-background/80 backdrop-blur-md" : "bg-transparent"
+        scrolled ? "bg-white" : "bg-transparent"
       }`}
     >
       {/* Borde inferior con degradado */}
@@ -54,7 +54,7 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            {["inicio", "nosotros", "servicios", "proyectos", "contacto"].map(
+            {["inicio", "servicios", "nosotros", "proyectos", "contacto"].map(
               (section) => (
                 <button
                   key={section}

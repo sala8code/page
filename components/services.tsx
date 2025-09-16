@@ -34,7 +34,7 @@ export function Services() {
   };
 
   return (
-    <section id="servicios" className="py-20 bg-muted/30">
+    <section id="servicios" className="py-20 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">
@@ -48,9 +48,9 @@ export function Services() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           {services.map((service, index) => (
-            <Card
+            <div
               key={index}
-              className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 text-center"
+              className="group relative bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 shadow-lg hover:shadow-xl transition-all duration-300 text-center hover:-translate-y-2"
             >
               <CardHeader className="w-full">
                 <div className="w-12 h-12 bg-primary/10 rounded-lg  mx-auto flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
@@ -63,7 +63,7 @@ export function Services() {
                   {service.description}
                 </p>
               </CardContent>
-            </Card>
+            </div>
           ))}
         </div>
 
