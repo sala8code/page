@@ -72,7 +72,7 @@ export function Header() {
           </nav>
 
           {/* Mobile Button */}
-          <div className="md:hidden">
+          <div className="md:hidden border border-gray-300 rounded-md">
             <Button
               variant="ghost"
               size="icon"
@@ -81,7 +81,7 @@ export function Header() {
               {isMenuOpen ? (
                 <X className="h-6 w-6" />
               ) : (
-                <Menu className="h-10 w-10 text-white" />
+                <Menu className="h-10 w-10" />
               )}
             </Button>
           </div>

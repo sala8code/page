@@ -74,34 +74,30 @@ export function About() {
           <h3 className="text-lg font-semibold mb-4">
             Síguenos en nuestras redes
           </h3>
-          <div className="flex justify-center gap-4">
+          <div className="flex items-center justify-center space-x-4">
             <a
               href="https://linkedin.com/company/sala8code"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center w-12 h-12 bg-primary/10 hover:bg-primary/20 rounded-full transition-colors"
+              className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 hover:bg-primary hover:text-white transition-all shadow-sm"
             >
-              <Linkedin className="w-6 h-6 text-primary" />
+              <Linkedin className="h-6 w-6" />
             </a>
             <a
               href="https://instagram.com/sala8code"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center w-12 h-12 bg-primary/10 hover:bg-primary/20 rounded-full transition-colors"
+              className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 hover:bg-primary hover:text-white transition-all shadow-sm"
             >
-              <Instagram className="w-6 h-6 text-primary" />
+              <Instagram className="h-6 w-6" />
             </a>
             <a
               href="https://x.com/sala8code"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center w-12 h-12 bg-primary/10 hover:bg-primary/20 rounded-full transition-colors"
+              className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 hover:bg-primary hover:text-white transition-all shadow-sm"
             >
-              <svg
-                className="w-6 h-6 text-primary"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
+              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
               </svg>
             </a>
