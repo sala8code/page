@@ -14,22 +14,20 @@ export function Header() {
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
-    setIsMenuOpen(false);
+    setIsMenuOpen(false); // cierra el menú cuando clickeas un link
   };
 
+  // Solo controla el scroll para cambiar estilos
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 0);
-      if (isMenuOpen) {
-        setIsMenuOpen(false); // Cierra el menú si se hace scroll
-      }
     };
 
-    handleScroll(); // 👈 fuerza el cálculo inicial
-
+    handleScroll(); // fuerza el cálculo inicial
     window.addEventListener("scroll", handleScroll);
+
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [isMenuOpen]);
+  }, []); // dependencia vacía, se ejecuta solo al montar
 
   return (
     <header
@@ -78,6 +76,7 @@ export function Header() {
             )}
           </nav>
 
+          {/* Botón menú hamburguesa */}
           <div className="md:hidden border border-gray-300 rounded-md">
             <Button
               variant="ghost"
@@ -94,9 +93,9 @@ export function Header() {
           </div>
         </div>
 
+        {/* Menú móvil */}
         {isMenuOpen && (
           <div className="md:hidden fixed top-0 right-0 w-64 sm:w-72 max-w-[80vw] h-screen bg-background/95 backdrop-blur-md rounded-l-lg shadow-lg z-50 transition-transform duration-300">
-            {/* Botón de cierre en la esquina superior */}
             <div className="flex justify-end px-4 py-4">
               <Button
                 variant="ghost"
