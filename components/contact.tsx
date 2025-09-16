@@ -1,40 +1,34 @@
 "use client";
 
-import type React from "react";
-
-import { useState } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Send } from "lucide-react";
+import { contactAction } from "@/lib/contactAction";
+import { FormEvent, useState } from "react";
+import { toast } from "sonner";
 
 export function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    message: "",
-  });
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Aquí iría la lógica para enviar el formulario
-    console.log("Formulario enviado:", formData);
-    // Reset form
-    setFormData({ name: "", email: "", company: "", message: "" });
-  };
+    setLoading(true);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    try {
+      await contactAction(formData); // llama a la Server Action
+      toast.success("Formulario enviado correctamente!"); // muestra el toast
+      form.reset(); // limpia el formulario
+    } catch (err: any) {
+      toast.error(err.message || "Error al enviar el formulario");
+    } finally {
+      setLoading(false);
+    }
   };
-
   return (
     <section id="contacto" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -61,8 +55,6 @@ export function Contact() {
                       className="bg-white/30"
                       id="name"
                       name="name"
-                      value={formData.name}
-                      onChange={handleChange}
                       placeholder="Tu nombre"
                       required
                     />
@@ -74,8 +66,6 @@ export function Contact() {
                       id="email"
                       name="email"
                       type="email"
-                      value={formData.email}
-                      onChange={handleChange}
                       placeholder="tu@email.com"
                       required
                     />
@@ -87,8 +77,6 @@ export function Contact() {
                     className="bg-white/30"
                     id="company"
                     name="company"
-                    value={formData.company}
-                    onChange={handleChange}
                     placeholder="Nombre de tu empresa"
                   />
                 </div>
@@ -98,8 +86,6 @@ export function Contact() {
                     className="bg-white/30"
                     id="message"
                     name="message"
-                    value={formData.message}
-                    onChange={handleChange}
                     placeholder="Cuéntanos sobre tu proyecto..."
                     rows={5}
                     required
