@@ -36,9 +36,10 @@ export function Header() {
       }`}
     >
       {/* Borde inferior con degradado */}
-      {scrolled && (
-        <div className="absolute bottom-0 left-0 w-full h-[3px] bg-gradient-to-r from-transparent via-[#29A9E0] to-transparent"></div>
-      )}
+      <div
+        className="absolute bottom-0 left-0 w-full h-[3px] bg-gradient-to-r from-transparent via-[#29A9E0] to-transparent transition-opacity duration-300"
+        style={{ opacity: scrolled ? 1 : 0 }}
+      ></div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
@@ -49,6 +50,7 @@ export function Header() {
               width={120}
               height={120}
               className="transition-transform duration-300 hover:scale-105"
+              priority
             />
           </div>
 

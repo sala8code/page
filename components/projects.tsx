@@ -1,65 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Github } from "lucide-react";
-import Link from "next/link";
 
-const projects = [
-  {
-    title: "EcoShop - E-commerce Sustentable",
-    description:
-      "Plataforma de comercio electrónico especializada en productos ecológicos con sistema de puntos de fidelidad.",
-    image: "/modern-ecommerce-website-green-theme.jpg",
-    category: "E-commerce",
-    link: "#",
-    github: "#",
-  },
-  {
-    title: "MediCare - App de Salud",
-    description:
-      "Aplicación móvil para gestión de citas médicas, historial clínico y telemedicina.",
-    image: "/healthcare-mobile-app.png",
-    category: "Salud",
-    link: "#",
-    github: "#",
-  },
-  {
-    title: "EduPlatform - LMS",
-    description:
-      "Sistema de gestión de aprendizaje con videoconferencias, evaluaciones y seguimiento de progreso.",
-    image: "/online-learning-dashboard.png",
-    category: "Educación",
-    link: "#",
-    github: "#",
-  },
-  {
-    title: "FinTracker - Finanzas Personales",
-    description:
-      "Aplicación web para el seguimiento de gastos personales con análisis inteligente y reportes.",
-    image: "/financial-dashboard-charts.png",
-    category: "Finanzas",
-    link: "#",
-    github: "#",
-  },
-  {
-    title: "RestaurantPOS - Sistema de Ventas",
-    description:
-      "Sistema punto de venta para restaurantes con gestión de mesas, inventario y reportes.",
-    image: "/restaurant-pos-system-interface.jpg",
-    category: "Retail",
-    link: "#",
-    github: "#",
-  },
-  {
-    title: "TravelBuddy - App de Viajes",
-    description:
-      "Aplicación móvil para planificación de viajes con recomendaciones personalizadas y mapas offline.",
-    image: "/travel-planning-app.png",
-    category: "Viajes",
-    link: "#",
-    github: "#",
-  },
-];
+import Link from "next/link";
+import projects from "@/projects.json";
 
 export function Projects() {
   return (
