@@ -19,7 +19,12 @@ export function Projects() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <Link className="h-full flex" href={project.link} key={index}>
+            <a
+              className="h-full flex"
+              href={project.link}
+              target="_blank"
+              key={index}
+            >
               <Card className="group overflow-hidden hover:shadow-xl transition-all duration-300 bg-transparent border-gray-200 cursor-pointer p-0 shadow-none">
                 <div className="relative overflow-hidden">
                   <img
@@ -37,7 +42,7 @@ export function Projects() {
                   </p>
                 </CardContent>
               </Card>
-            </Link>
+            </a>
           ))}
         </div>
 

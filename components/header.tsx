@@ -49,7 +49,6 @@ export function Header() {
               alt="Logo"
               width={120}
               height={120}
-              className="transition-transform duration-300 hover:scale-105"
               priority
             />
           </div>

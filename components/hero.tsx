@@ -14,7 +14,7 @@ export function Hero() {
   return (
     <section
       id="inicio"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen h-full flex items-center justify-center overflow-hidden"
     >
       {/* Video de fondo */}
       <video
@@ -22,6 +22,7 @@ export function Hero() {
         loop
         muted
         playsInline
+        preload="auto"
         className="absolute inset-0 w-full h-full object-cover -z-20"
       >
         <source src="/fondo2.mp4" type="video/mp4" />
