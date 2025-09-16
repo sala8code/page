@@ -52,8 +52,9 @@ export function Header() {
               alt="Logo"
               width={120}
               height={120}
-              className="w-auto h-12 sm:h-14 md:h-16 max-w-[120px] object-contain transition-transform duration-300 hover:scale-105"
+              className="w-auto h-12 sm:h-14 md:h-16 max-w-[120px] cursor-pointer object-contain transition-transform duration-300 hover:scale-105"
               priority
+              onClick={() => scrollToSection("inicio")}
             />
           </div>
 
