@@ -25,6 +25,8 @@ export function Header() {
       }
     };
 
+    handleScroll(); // 👈 fuerza el cálculo inicial
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isMenuOpen]);
@@ -32,23 +34,27 @@ export function Header() {
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-white" : "bg-transparent"
+        scrolled ? "bg-white shadow-sm" : "bg-transparent"
       }`}
     >
-      {/* Borde inferior con degradado */}
+      {/* Línea azul solo cuando se hace scroll */}
       <div
-        className="absolute bottom-0 left-0 w-full h-[3px] bg-gradient-to-r from-transparent via-[#29A9E0] to-transparent transition-opacity duration-300"
-        style={{ opacity: scrolled ? 1 : 0 }}
+        className={`absolute bottom-0 left-0 w-full transition-all duration-300 ${
+          scrolled
+            ? "h-[3px] bg-gradient-to-r from-transparent via-[#29A9E0] to-transparent opacity-100"
+            : "hidden"
+        }`}
       ></div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          <div>
+          <div className="flex-shrink-0">
             <Image
               src="/logo.png"
               alt="Logo"
               width={120}
               height={120}
+              className="w-auto h-12 sm:h-14 md:h-16 max-w-[120px] object-contain transition-transform duration-300 hover:scale-105"
               priority
             />
           </div>
@@ -60,10 +66,10 @@ export function Header() {
                 <button
                   key={section}
                   onClick={() => scrollToSection(section)}
-                  className={`transition-colors cursor-pointer font-semibold ${
+                  className={`transition-colors cursor-pointer font-semibold whitespace-nowrap ${
                     scrolled
-                      ? "text-black hover:text-primary"
-                      : "text-white hover:text-primary"
+                      ? "text-gray-900 hover:text-[#29A9E0]"
+                      : "text-white hover:text-[#29A9E0]"
                   }`}
                 >
                   {section.charAt(0).toUpperCase() + section.slice(1)}
@@ -72,31 +78,31 @@ export function Header() {
             )}
           </nav>
 
-          {/* Mobile Button */}
           <div className="md:hidden border border-gray-300 rounded-md">
             <Button
               variant="ghost"
               size="icon"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="h-10 w-10"
             >
               {isMenuOpen ? (
                 <X className="h-6 w-6" />
               ) : (
-                <Menu className="h-10 w-10" />
+                <Menu className="h-6 w-6" />
               )}
             </Button>
           </div>
         </div>
 
-        {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden fixed top-0 right-0 w-1/2 h-screen bg-background/80 backdrop-blur-md rounded-l-lg shadow-lg z-50 transition-transform duration-300">
+          <div className="md:hidden fixed top-0 right-0 w-64 sm:w-72 max-w-[80vw] h-screen bg-background/95 backdrop-blur-md rounded-l-lg shadow-lg z-50 transition-transform duration-300">
             {/* Botón de cierre en la esquina superior */}
             <div className="flex justify-end px-4 py-4">
               <Button
                 variant="ghost"
                 size="icon"
                 onClick={() => setIsMenuOpen(false)}
+                className="h-10 w-10"
               >
                 <X className="h-6 w-6 text-black" />
               </Button>
@@ -108,7 +114,7 @@ export function Header() {
                   <button
                     key={section}
                     onClick={() => scrollToSection(section)}
-                    className="block px-3 py-3 text-base font-medium w-full text-left text-black hover:text-primary transition-colors"
+                    className="block px-3 py-3 text-base font-medium w-full text-left text-black hover:text-primary transition-colors rounded-md hover:bg-gray-100"
                   >
                     {section.charAt(0).toUpperCase() + section.slice(1)}
                   </button>
