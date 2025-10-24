@@ -20,7 +20,7 @@ export default function RootLayout({
           name="description"
           content="Creamos sitios web, aplicaciones y soluciones digitales a medida para tu empresa. Contactanos y llevá tu proyecto al siguiente nivel."
         />
-        <link rel="canonical" href="https://sala8code.vercel.app" />
+        <link rel="canonical" href="https://sala8code.com" />
         <meta name="robots" content="index, follow" />
         <link rel="icon" href="/favicon.ico" />
         <link
@@ -42,13 +42,10 @@ export default function RootLayout({
           property="og:description"
           content="Creamos sitios web, aplicaciones y soluciones digitales a medida para tu empresa."
         />
-        <meta property="og:url" content="https://sala8code.vercel.app" />
+        <meta property="og:url" content="https://sala8code.com" />
         <meta property="og:site_name" content="Sala8Code" />
         <meta property="og:type" content="website" />
-        <meta
-          property="og:image"
-          content="https://sala8code.vercel.app/logo.png"
-        />
+        <meta property="og:image" content="https://sala8code.com/logo.png" />
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -57,10 +54,7 @@ export default function RootLayout({
           name="twitter:description"
           content="Creamos sitios web, aplicaciones y soluciones digitales a medida para tu empresa."
         />
-        <meta
-          name="twitter:image"
-          content="https://sala8code.vercel.app/logo.png"
-        />
+        <meta name="twitter:image" content="https://sala8code.com/logo.png" />
       </head>
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
         {children}

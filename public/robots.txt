@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sala8code.vercel.app/sitemap.xml
+Sitemap: https://sala8code.com/sitemap.xml
