@@ -56,7 +56,9 @@ export default function RootLayout({
         />
         <meta name="twitter:image" content="https://sala8code.com/logo.png" />
       </head>
-      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
+      <body
+        className={`font-sans ${GeistSans.variable} ${GeistMono.variable} dark`}
+      >
         {children}
         <Analytics />
         <Toaster position="bottom-right" richColors />

@@ -3,8 +3,8 @@ import Image from "next/image";
 
 export function About() {
   return (
-    <section id="nosotros" className="py-20 bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="nosotros" className="py-20 bg-muted/30">
+      <div className="container 0 mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">
             Creamos sitios web pensando en resultados
@@ -74,7 +74,7 @@ export function About() {
           <h3 className="text-lg font-semibold mb-4">
             Síguenos en nuestras redes
           </h3>
-          <div className="flex items-center justify-center space-x-4">
+          <div className="flex items-center text-[#29A9E0] justify-center space-x-4">
             <a
               href="https://linkedin.com/company/sala8code"
               target="_blank"

@@ -32,7 +32,7 @@ export function Header() {
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-white shadow-sm" : "bg-transparent"
+        scrolled ? "bg-neutral-900 shadow-sm" : "bg-transparent"
       }`}
     >
       {/* Línea azul solo cuando se hace scroll */}
@@ -67,7 +67,7 @@ export function Header() {
                   onClick={() => scrollToSection(section)}
                   className={`transition-colors cursor-pointer font-semibold whitespace-nowrap ${
                     scrolled
-                      ? "text-gray-900 hover:text-[#29A9E0]"
+                      ? " hover:text-[#29A9E0]"
                       : "text-white hover:text-[#29A9E0]"
                   }`}
                 >
