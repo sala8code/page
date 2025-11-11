@@ -1,8 +1,14 @@
 [
   {
-    "title": "Comics Bar Rosario – Sitio Web Oficial",
-    "description": "Página web para un bar de Rosario con temática cómic, mostrando menú, eventos y ambiente divertido para sus clientes.",
+    "title": "Comics Bar Rosario",
+    "description": "Página web para Comics Bar de Rosario, con temática cómic, mostrando menú, eventos y ambiente divertido para sus clientes.",
     "image": "/projects/comicsbar.png",
     "link": "https://comicsbar.com"
+  },
+  {
+    "title": "My Italian Souls",
+    "description": "Plataforma que acompaña a personas en su camino hacia la ciudadanía italiana, con diseño elegante, experiencia multilenguaje y navegación rápida, transmitiendo profesionalismo y cercanía.",
+    "image": "/projects/MyItalianSouls.png",
+    "link": "https://www.myitaliansouls.com"
   }
 ]

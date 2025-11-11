@@ -77,7 +77,7 @@ export function Footer() {
             <h4 className="font-semibold text-foreground mt-10 mb-4">
               ¡Encuéntranos aquí!
             </h4>
-            <div className="flex items-center justify-center space-x-4">
+            <div className="flex items-center text-[#29A9E0] justify-center space-x-4">
               <a
                 href="https://linkedin.com/company/sala8code"
                 target="_blank"

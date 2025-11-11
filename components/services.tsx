@@ -67,10 +67,10 @@ export function Services() {
           ))}
         </div>
 
-        <div className="text-center">
-          <Button size="lg" onClick={scrollToContact} className="group">
+        <div className="text-center ">
+          <Button size="lg" onClick={scrollToContact} className="group ">
             Solicitar consulta gratuita
-            <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform " />
           </Button>
         </div>
       </div>
