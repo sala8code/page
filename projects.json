@@ -1,5 +1,11 @@
 [
   {
+    "title": "Mítico Bar",
+    "description": "Página web para Mítico Bar, con una identidad visual moderna y elegante, enfocada en mostrar su propuesta gastronómica, eventos y experiencia del lugar, ofreciendo una navegación clara y atractiva para sus clientes.",
+    "image": "/projects/miticobar.jpeg",
+    "link": "https://miticobar.com.ar"
+  },
+  {
     "title": "Comics Bar Rosario",
     "description": "Página web para Comics Bar de Rosario, con temática cómic, mostrando menú, eventos y ambiente divertido para sus clientes.",
     "image": "/projects/comicsbar.png",

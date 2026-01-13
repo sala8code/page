@@ -21,7 +21,7 @@ export async function contactAction(formData: FormData) {
   try {
     await resend.emails.send({
       from: "Sala8Code <onboarding@resend.dev>",
-      to: "abranico011@gmail.com",
+      to: "sala8code@gmail.com",
       subject: `Nuevo mensaje de ${name}`,
       html: `
         <p><strong>Nombre:</strong> ${name}</p>
