@@ -16,5 +16,11 @@
     "description": "Plataforma que acompaña a personas en su camino hacia la ciudadanía italiana, con diseño elegante, experiencia multilenguaje y navegación rápida, transmitiendo profesionalismo y cercanía.",
     "image": "/projects/MyItalianSouls.png",
     "link": "https://www.myitaliansouls.com"
+  },
+  {
+    "title": "CREERH",
+    "description": "Plataforma digital para una consultora de Recursos Humanos que centraliza servicios, búsquedas laborales y capacitaciones, ofreciendo una experiencia clara, moderna y orientada tanto a empresas como a candidatos.",
+    "image": "/projects/creerh.png",
+    "link": "https://www.creerh.com.ar"
   }
 ]
